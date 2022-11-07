@@ -23,8 +23,8 @@
 ![Reaktek's AWS IoT ExpressLink Eval board](picture/Ameba_Z2.png "Realtek's AWS IoT ExpressLink Eval Kit")
 
 AWS IoT ExpressLink is connectivity software that powers a range of hardware modules developed and offered by AWS partners. These modules provide cloud-connectivity and implement AWS-mandated security requirements. Integrating these wireless modules into the hardware design of your device makes it faster and easier to build Internet of Things (IoT) products that connect securely with AWS services.
-Realtek's AWS IoT ExpressLink (Henceforth referred to as ExpressLink) module is a connectivity module that connects via a serial interface (UART) and uses an abstracted Application Programming Interface (API) to connect any host application to AWS IoT Core and its services.
-In so doing, the ExpressLink module offloads complex and undifferentiated workload such as authentication, device management, connectivity, and messaging from the application (host) processor.
+Realtek's AWS IoT ExpressLink (henceforth referred to as ExpressLink) module is a connectivity module that uses a serial interface (UART) and an abstracted Application Programming Interface (API) to connect any host application processor to AWS IoT Core and its services.
+In so doing, the ExpressLink module offloads complex and undifferentiated workloads such as authentication, device management, connectivity, and messaging from the application (host) processor.
 More information on AWS IoT ExpressLink can be found [here](https://aws.amazon.com/iot-expresslink/).  
 The developer documentation can be found [here](https://docs.aws.amazon.com/iot-expresslink).  
 Examples for AWS IoT ExpressLink can be found [here](https://github.com/aws/iot-expresslink).  
@@ -34,7 +34,7 @@ Examples for AWS IoT ExpressLink can be found [here](https://github.com/aws/iot-
 
 # 3. Hardware Description
 
-Realtek's AWS IoT ExpressLink board (Henceforth referred to as ExpressLink board) has pin header, so it can be used with a Raspberry Pi or any other host.
+Realtek's AWS IoT ExpressLink board (Henceforth referred to as ExpressLink board) has a pin header, so it can be used with a Raspberry Pi or any other host.
 It has the following connection pins that need to be made, for full functionality of the board:  
 
 | ExpressLink Pin | Ameba-Z2 GPIO Pin |
@@ -63,6 +63,7 @@ The Datasheet of Realtek's AWS IoT ExpressLink board can be found [here](https:/
 You may also need the following items:  
 - MicroUSB cable such as [this](https://www.amazon.com/AmazonBasics-Male-Micro-Cable-Black/dp/B0711PVX6Z/).  
 - USB TTL converter such as [this one](https://www.amazon.com/Adapter-Serial-Converter-Development-Projects/dp/B075N82CDL/).
+- Female to female jumpers such as [this](https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78).
 
 ## 3.4 3rd Party purchasable items
 
@@ -141,15 +142,15 @@ The demo will connect to AWS IoT and give you a URL that you can use to visualiz
 
 ![Reaktek's AWS IoT ExpressLink Eval with QuickConnect](picture/quickConnect.png "Sbapshot of Ameba Z2's QuickConnect Visualizer")
 
-The following sections will guide you through next steps when you will set up your AWS account and interact with the modules to send and receive data directly with your AWS account.	
+The following sections will guide you through next steps where you will set up your AWS account and interact with the modules to send and receive data directly with your AWS account.
 
 # 5. Setup your AWS account and Permissions for IoT development
 
-Refer to the instructions at [Set up your AWS Account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html). Follow the steps outlined in these sections to create your account and a user and get started:
+Refer to the online AWS documentation at [Set up your AWS Account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html). Follow the steps outlined in the sections below to create your account and a user and get started:
 
-- Sign up for an AWS account and
-- Create a user and grant permissions.
-- Open the AWS IoT console
+- [Sign up for an AWS account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#aws-registration)
+- [Create a user and grant permissions](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#create-iam-user)
+- [Open the AWS IoT console](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#iot-console-signin)
 
 Pay special attention to the Notes.
 
@@ -177,7 +178,7 @@ There are two methods to obtain the certificate, as shown in steps 6a and 6b:
 { "Version": "2012-10-17", "Statement": [{ "Effect": "Allow", "Action": "*", "Resource": "*" }] }
 `
 
-_NOTE – The examples in this document are intended only for dev environments. All devices in your fleet must have credentials with privileges that authorize only intended actions on specific resources. The specific permission policies can vary for your use case. Identify the permission policies that best meet your business and security requirements. For more information, refer to Example policies and Security Best practices._
+NOTE – The examples in this document are intended only for dev environments. All devices in your fleet must have credentials with privileges that authorize only intended actions on specific resources. The specific permission policies can vary for your use case. Identify the permission policies that best meet your business and security requirements. For more information, refer to [Example policies](https://docs.aws.amazon.com/iot/latest/developerguide/example-iot-policies.html) and [Security Best practices](https://docs.aws.amazon.com/iot/latest/developerguide/security-best-practices.html).
 
 Click **Save** to complete the Thing creation.
 
@@ -223,7 +224,7 @@ Next, enter the command: **AT+SEND1 Hello World!**
 
 After a short time, you will receive the message **OK**
 
-You should see the "Hello World!" message appear on the AWS IoT console under the topic "data".
+You should see the "Hello World!" message appear on the AWS IoT MQTT Test client under the topic "data".
 
 ## 7.3 Receiving data and commands from the cloud
 
@@ -261,7 +262,7 @@ You should have received a firmware image signed by the manufacturer of the Expr
 7. Under **Path Name of file on device** you can enter **NA**.
 8. Under **File type** drop down set value to `101` to signify it's an ExpressLink firmware update as opposed to a host firmware update.
 9. Choose the OTA update role created above from **role** dropdown under **IAM role** section. Click **Next**.
-10 Click **Create Job**. On successful creation it should list the job name and state as in progress.
+10. Click **Create Job**. On successful creation it should list the job name and state as "in progress".
 
 ## 8.3 Monitoring and Applying new firmware update for ExpressLink
 
@@ -273,11 +274,11 @@ You can then paste the contents of the ecdsasigner.crt file in your terminal.
 
 1. ExpressLink module polls for firmware update jobs, receives and validates a job, and enters a state waiting for update to be accepted.
 2. Host application receives an OTA event indicating a new firmware image is available for ExpressLink. Host application can query the state of the job using the command **AT+OTA?**. You should see the module response **OK 1 version** to inform a module OTA firmware update was proposed.
-3. Host application can accept a new firmware update for by issuing command **AT+OTA ACCEPT**.
+3. Host application can accept a new firmware update by issuing command **AT+OTA ACCEPT**.
 4. ExpressLink should now start downloading the firmware update from cloud. Host can monitor the state of the job using **AT+OTA?**
 5. On download completion and successful image signature validation, host receives an event to apply the new image.
 6. Host application can apply the new image by issuing the command **AT+OTA APPLY**
-7. ExpressLink now reboots and boots up with the new image. Host receives a **STARTUP** event indicating the new image is booted. To see the event, issuing **AT+EVENT?**. (Notes: the event queue is shown up on the FIFO order, you may have to issue **AT+EVENT?** command multiple times, depending on how many events are previously on the queue).
+7. ExpressLink now reboots and boots up with the new image. Host receives a **STARTUP** event indicating the new image is booted. To see the event, issuing **AT+EVENT?**. (Notes: the event queue is shown in FIFO order, you may have to issue **AT+EVENT?** command multiple times, depending on how many events are previously on the queue).
 8. Host application can connect back to the AWS IoT by issuing **AT+CONNECT**
 9. ExpressLink should now connect to AWS IoT, complete the self-test and mark the image as valid preventing any further rollback to old image.
 10. Going back to the AWS IoT console, job status should be marked as completed and succeeded.
@@ -290,4 +291,4 @@ You can then paste the contents of the ecdsasigner.crt file in your terminal.
 
 2. For Realtek-Ameba-z2 usage issues, please refer [AMEBA IoT forum](https://forum.amebaiot.com/) to create your issue.
 
-3. For common AT command issues, please refer to AWS IoT ExpressLink FAQ page.
+3. For common AT command issues, please refer to [AWS IoT ExpressLink FAQ](https://aws.amazon.com/iot-expresslink/faqs/?nc1=h_ls) page.
