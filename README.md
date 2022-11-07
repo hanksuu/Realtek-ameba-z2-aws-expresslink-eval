@@ -122,6 +122,8 @@ To establish a serial connection between your host machine and ExpressLink, open
 
 For a quick check, in the terminal window type: **AT** followed by **return**. If you receive the answer **OK** , Congratulations! You have successfully connected the evaluation kit to your host machine.
 
+![Reaktek's AWS IoT ExpressLink Eval board](picture/minicon-test.png "Host Machine Quick Check")
+
 # 4. Run the Quick Connect demo application
 The Quick Connect demo application allows you to establish a connection with AWS IoT, all in the space of a few minutes; no dependencies to install, no source code to download and build, and no AWS account required. 
 
@@ -156,10 +158,7 @@ Pay special attention to the Notes.
 
 # 6. Registering ExpressLink to your development account
 
-To create an IoT _Thing_ and add it to your account we will need to retrieve the ExpressLink module Thing Name and its corresponding certificate.  
-There are two methods to obtain the certificate, as shown in steps 6a and 6b:  
-
-## Setting up on the AWS IoT Console
+To create an IoT _Thing_ and add it to your account we will need to retrieve the AWS IoT ExpressLink module Thing Name and its corresponding certificate. Follow the below steps:
 
 1. Open the [AWS IoT Console](http://console.aws.amazon.com/iot). Select **Manage** then select **Things**. Choose **Create things** , select **Create single thing** , click **Next**.
 2. In the terminal application type the command: **AT+CONF? ThingName**
@@ -226,6 +225,8 @@ After a short time, you will receive the message **OK**
 
 You should see the "Hello World!" message appear on the AWS IoT MQTT Test client under the topic "data".
 
+![Reaktek's AWS IoT ExpressLink Eval board](picture/MQTT-Test-Client-send.png "Snapshot of Sending data to the AWS cloud")
+
 ## 7.3 Receiving data and commands from the cloud
 
 To receive messages, first enter the command: **AT+CONF Topic1=MyTopic**
@@ -239,6 +240,8 @@ From the AWS IoT console, MQTT client, select **Publish to a topic** , type **My
 On your terminal, enter the command: **AT+GET1**
 
 You will receive the message **OK Hello from the AWS IoT console**
+
+![Reaktek's AWS IoT ExpressLink Eval board](picture/MQTT-Test-Client-get.png "Snapshot of Receiving data and commands from the cloud")
 
 # 8. Perform Firmware Over-The-Air Update for AWS IoT ExpressLink
 
