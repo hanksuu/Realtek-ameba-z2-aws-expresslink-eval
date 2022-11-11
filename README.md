@@ -1,4 +1,4 @@
-# Getting Started Guide for Realtek's AWS IoT ExpressLink Evaluation Kit
+# Getting Started Guide for Realtek's Ameba Z2 AWS IoT ExpressLink Evaluation Kit
 
 # Table of Contents
 
@@ -20,7 +20,7 @@
 
 # 2. Overview
 
-![Reaktek's AWS IoT ExpressLink Eval board](picture/Ameba_Z2.png "Realtek's AWS IoT ExpressLink Eval Kit")
+![Realtek's Ameba Z2 AWS IoT ExpressLink Eval board](picture/Ameba_Z2.png "Realtek's Ameba Z2 AWS IoT ExpressLink Eval Kit")
 
 AWS IoT ExpressLink is connectivity software that powers a range of hardware modules developed and offered by AWS partners. These modules provide cloud-connectivity and implement AWS-mandated security requirements. Integrating these wireless modules into the hardware design of your device makes it faster and easier to build Internet of Things (IoT) products that connect securely with AWS services.
 Realtek's AWS IoT ExpressLink (henceforth referred to as ExpressLink) module is a connectivity module that uses a serial interface (UART) and an abstracted Application Programming Interface (API) to connect any host application processor to AWS IoT Core and its services.
@@ -34,7 +34,7 @@ Examples for AWS IoT ExpressLink can be found [here](https://github.com/aws/iot-
 
 # 3. Hardware Description
 
-Realtek's AWS IoT ExpressLink board (Henceforth referred to as ExpressLink board) has a pin header, so it can be used with a Raspberry Pi or any other host.
+Realtek's Ameba Z2 AWS IoT ExpressLink board (Henceforth referred to as ExpressLink board) has a pin header, so it can be used with a Raspberry Pi or any other host.
 It has the following connection pins that need to be made, for full functionality of the board:  
 
 | ExpressLink Pin | Ameba-Z2 GPIO Pin |
@@ -49,11 +49,11 @@ It has the following connection pins that need to be made, for full functionalit
 
 ## 3.1 DataSheet
 
-The Datasheet of Realtek's AWS IoT ExpressLink board can be found [here](https://www.amebaiot.com/en/amebaz2/#rtk_amb31).
+The Datasheet of Realtek's Ameba Z2 AWS IoT ExpressLink board can be found [here](https://www.amebaiot.com/en/amebaz2/#rtk_amb31).
 
 ## 3.2 Standard Kit Contents
 
-- One unit of Realtek's AWS IoT ExpressLink board.
+- One unit of Realtek's Ameba Z2 AWS IoT ExpressLink.
 
 ## 3.3 User Provided items
 
@@ -92,7 +92,7 @@ To establish a serial connection between your host machine and the Realtek Ameba
 
 2. You can now access ExpressLink on your Raspberry Pi, by using a desktop terminal application of your choice and using /dev/ttyS0 with the settings as shown in the table in Section 3.7
 
-![Reaktek's AWS IoT ExpressLink Eval board to Raspberry Pi](picture/Pi-to-AmebaZ2.png "Realtek's AWS IoT ExpressLink Eval Kit to Raspberry Pi")
+![Realtek's Ameba Z2 AWS IoT ExpressLink Eval board to Raspberry Pi](picture/Pi-to-AmebaZ2.png "Realtek's Ameba Z2 AWS IoT ExpressLink Eval Kit to Raspberry Pi")
 
 ## 3.6.2 With any development host
 The ExpressLink board can be used with any development host, over a USB serial interface (using a USB-to-TTL converter) and using the simple AT commands for controlling ExpressLink.
@@ -105,7 +105,7 @@ The ExpressLink board can be used with any development host, over a USB serial i
 
 Please note that, in this case, additional functionality like WAKE and EVENT cannot be utilised, but this can serve as a simple way for a quick evaluation and understanding behaviour of commands.
 
-![Reaktek's AWS IoT ExpressLink Eval board to USBTTL](picture/USBTTL-to-AmebaZ2.png "Realtek's AWS IoT ExpressLink Eval Kit with USB-TTL")
+![Realtek's Ameba Z2 AWS IoT ExpressLink Eval board to USBTTL](picture/USBTTL-to-AmebaZ2.png "Realtek's Ameba Z2 AWS IoT ExpressLink Eval Kit with USB-TTL")
 
 ## 3.7 Set up host machine
 
@@ -122,7 +122,7 @@ To establish a serial connection between your host machine and ExpressLink, open
 
 For a quick check, in the terminal window type: **AT** followed by **return**. If you receive the answer **OK** , Congratulations! You have successfully connected the evaluation kit to your host machine.
 
-![Reaktek's AWS IoT ExpressLink Eval board](picture/minicon-test.png "Host Machine Quick Check")
+![Realtek's Ameba Z2 AWS IoT ExpressLink Eval board](picture/minicon-test.png "Host Machine Quick Check")
 
 # 4. Run the Quick Connect demo application
 The Quick Connect demo application allows you to establish a connection with AWS IoT, all in the space of a few minutes; no dependencies to install, no source code to download and build, and no AWS account required. 
@@ -142,7 +142,7 @@ C.	[Download for Linux](https://quickconnectexpresslinkutility.s3.us-west-2.amaz
 
 The demo will connect to AWS IoT and give you a URL that you can use to visualize data flowing from the device to the cloud using **AT+SEND** commands. The demo will run for up to two minutes, and afterwards, you will be able to type **AT+SEND** commands yourself and see the data coming in on the visualizer. 
 
-![Reaktek's AWS IoT ExpressLink Eval with QuickConnect](picture/quickConnect.png "Sbapshot of Ameba Z2's QuickConnect Visualizer")
+![Realtek's Ameba Z2 AWS IoT ExpressLink Eval with QuickConnect](picture/quickConnect.png "Sbapshot of Ameba Z2's QuickConnect Visualizer")
 
 The following sections will guide you through next steps where you will set up your AWS account and interact with the modules to send and receive data directly with your AWS account.
 
@@ -225,7 +225,7 @@ After a short time, you will receive the message **OK**
 
 You should see the "Hello World!" message appear on the AWS IoT MQTT Test client under the topic "data".
 
-![Reaktek's AWS IoT ExpressLink Eval board](picture/MQTT-Test-Client-send.png "Snapshot of Sending data to the AWS cloud")
+![Realtek's Ameba Z2 AWS IoT ExpressLink Eval board](picture/MQTT-Test-Client-send.png "Snapshot of Sending data to the AWS cloud")
 
 ## 7.3 Receiving data and commands from the cloud
 
@@ -241,7 +241,7 @@ On your terminal, enter the command: **AT+GET1**
 
 You will receive the message **OK Hello from the AWS IoT console**
 
-![Reaktek's AWS IoT ExpressLink Eval board](picture/MQTT-Test-Client-get.png "Snapshot of Receiving data and commands from the cloud")
+![Realtek's Ameba Z2 AWS IoT ExpressLink Eval board](picture/MQTT-Test-Client-get.png "Snapshot of Receiving data and commands from the cloud")
 
 # 8. Perform Firmware Over-The-Air Update for AWS IoT ExpressLink
 
