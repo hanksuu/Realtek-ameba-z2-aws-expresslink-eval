@@ -1,10 +1,9 @@
 # Getting Started Guide for Realtek's Ameba Z2 AWS IoT ExpressLink Evaluation Kit
 
 ## WARNING : 
-### Ameba Z2 AWS IoT ExpressLink Evaluation Kit is built on the Realtek RTL8720CM SoC and offers direct access and connections to the AWS Cloud with pre-installed AWS IoT ExpressLink firmware, certificate. 
+### Ameba Z2 AWS IoT ExpressLink Evaluation Kit is offers direct access and connections to the AWS Cloud with pre-installed AWS IoT ExpressLink firmware and certificate. 
 
 ### Please DO NOT download other firmware or erase flash data.
-
 # Table of Contents
 
 1. [Document Information](#1-document-information)
@@ -79,7 +78,7 @@ You may also need the following items:
 Refer to the [AmebaZ2 Website](https://www.amebaiot.com/en/amebaz2/#rtk_amb31), for more information on the hardware.
 
 ## 3.6 Set up your hardware
-To establish a serial connection between your host machine and the Realtek Ameba Z2, you must install the USB to UART Bridge Virtual Communication Port drivers. You can download these drivers from [mbedWinSerial](https://github.com/ambiot/ambz2_sdk/blob/master/tools/serial_to_usb/mbedWinSerial_16466.zip). For more information, see [Realtek Ameba-ZII application note](https://github.com/hanksuu/Realtek-ameba-z2-aws-expresslink-eval/blob/main/doc/AN0500%20Realtek%20Ameba-ZII%20application%20note.en.pdf).
+To establish a serial connection between your host machine and the Realtek Ameba Z2, you must install the USB to UART Bridge Virtual Communication Port drivers. You can download these drivers from [mbedWinSerial](https://github.com/ambiot/ambz2_sdk/blob/master/tools/serial_to_usb/mbedWinSerial_16466.zip). For more information, see [Realtek Ameba-ZII application note](https://github.com/ambiot/ambz2_aws_iot_expresslink_eval/blob/main/doc/AN0500%20Realtek%20Ameba-ZII%20application%20note.en.pdf).
 
 ## 3.6.1 With Raspberry Pi
 
